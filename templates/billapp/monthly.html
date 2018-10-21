@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<title>Pocket money</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="{% static 'billapp/style.css' %}">
+	</head>
+	<body>
+		<div><nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="/" style="font-size:20px">Home</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="nav nav-pills nav-fill" style="font-size:14px">
+					<li class="nav-item">
+						<a class="nav-link" href="#" id="myBtn" >Add a new bill</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/display/">Display your monthly bills</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/expense/">Calculate your expense</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" href="/monthly/">Pocket money</a>
+					</li>
+					<li class="nav-item">
+							<a class="nav-link disabled" href="/logout/">logout</a>
+						</li
+				</ul></div>
+			</nav>
+		</div>
+		<div class="container">
+			{% block content %}
+				<div class="row">
+					<div class="col-md-3">
+						<form method="POST" action="/monthly/">
+							{% csrf_token %}
+							<div class="form-group" style="margin-top:20px">
+								
+								<input type="number" name="pocket_money" placeholder="pocket money" class="form-control" id="exampleFormControlInput1" style="margin:10px;height:10%;font-size:14px">
+								<input type="number" name="daily_expense" placeholder="daily expense" class="form-control" id="exampleFormControlInput1"style="margin:10px;font-size:14px;height:10%">
+								<input class="btn btn-primary" type="submit" value="Submit" style="margin:10px;height:10%;font-size:14px">
+							</div>
+						</form>
+						{% if days %}
+							<h4>You need <b>{{days}}</b> to spend your money</h4>
+						{% endif %}
+					</div>
+					<div class="col-md-9">
+						{% if chart %}
+							<embed type="image/svg+xml" src="{{chart|safe}}"/>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			<div id="myModal" class="modal">
+				<!-- Modal content -->
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<form method="POST" action="/">
+						{% csrf_token %}
+						<div style="padding:20px;">
+						<div class="form-group">
+							
+							<input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="bill name" style="width:50%;height:40px">
+						</div>
+						<div class="form-group">
+							<input type="number" name="amount" class="form-control" id="exampleFormControlInput1" placeholder="bill amt" style="width:50%;height:40px;font-size:14px">
+						</div>
+						<div class="form-group">
+							<input type="date" name="due_date" class="form-control" id="exampleFormControlInput1" placeholder="due date" value="last date" style="width:50%;height:40px;font-size:14px">
+						</div>
+						
+						<input class="btn btn-primary" type="submit" value="Add" style="width:10%;height:25px">
+					</div>
+					</form>
+				</div>
+			</div>
+	
+		{% endblock %}
+	</div>
+	<script src="{% static 'js/index.js' %}"></script>
+	<script src="{% static 'js/jquery.flot.js' %}"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

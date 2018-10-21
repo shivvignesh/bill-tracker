@@ -1,0 +1,1 @@
+web: gunicorn bill_tracke.wsgi

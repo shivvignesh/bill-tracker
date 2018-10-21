@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login</title>
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="{% static 'billapp/style.css' %}">
+
+
+	</head>
+	<body style="background-color:#e0e0d1">
+		<center>
+		<div  style="height:80vh;background-color:white;margin-top:20px;border-radius:20px" class="col-md-6" >
+			<div class="container" 	><h3 style="padding:15px;font:" align="center" class="display-4">Login </h3></div>
+			<form action="/login/" method="POST">
+				{% csrf_token %}
+				<div class="form-group">
+					
+					<input type="email" class="form-control" name="email" placeholder="Email" style="padding:15px;width:50%" align="center" class="display-4">
+				</div>
+				<div class="form-group">
+					
+					<input type="password" class="form-control" name="password" placeholder="Password" style="padding:15px;width:50%" align="center" class="display-4">
+				</div>
+				<div style="padding:15px">
+					
+				<button type="submit" class="btn btn-default">Log In</button>
+				</div>
+			</form>
+
+		<small><p style="padding:5px">New?</p><a href="/signup/" style="display:inline;color:blue;">signup here</a></small>
+		</div>
+		</center>
+	</body>
+</html>

@@ -1,0 +1,13 @@
+{% block content %}
+<form method="POST">
+{% csrf_token %}
+
+	<input type="text" name="name" placeholder="bill name"><br>
+	<input type="number" name="amount" placeholder="bill amt"><br>
+	<input type="date" name="due_date" placeholder="due date"><br>
+	<input type="text" name="month" placeholder="month"><br>
+	<button type="submit">Submit</button>
+</form>
+
+{% endblock %}
+<button onclick="window.location='{% url 'add'  %}'" class="btn-btn-primary">Add Bill</button>
