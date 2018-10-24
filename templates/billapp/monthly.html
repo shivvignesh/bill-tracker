@@ -42,8 +42,8 @@
 							{% csrf_token %}
 							<div class="form-group" style="margin-top:20px">
 								
-								<input type="number" name="pocket_money" placeholder="pocket money" class="form-control" id="exampleFormControlInput1" style="margin:10px;height:10%;font-size:14px">
-								<input type="number" name="daily_expense" placeholder="daily expense" class="form-control" id="exampleFormControlInput1"style="margin:10px;font-size:14px;height:10%">
+								<input type="number" name="pocket_money" placeholder="pocket money" class="form-control" id="exampleFormControlInput1" style="margin:10px;height:10%;font-size:14px" required="">
+								<input type="number" name="daily_expense" placeholder="daily expense" class="form-control" id="exampleFormControlInput1"style="margin:10px;font-size:14px;height:10%" required="">
 								<input class="btn btn-primary" type="submit" value="Submit" style="margin:10px;height:10%;font-size:14px">
 							</div>
 						</form>
@@ -67,13 +67,13 @@
 						<div style="padding:20px;">
 						<div class="form-group">
 							
-							<input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="bill name" style="width:50%;height:40px">
+							<input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="bill name" style="width:50%;height:40px" required="">
 						</div>
 						<div class="form-group">
-							<input type="number" name="amount" class="form-control" id="exampleFormControlInput1" placeholder="bill amt" style="width:50%;height:40px;font-size:14px">
+							<input type="number" name="amount" class="form-control" id="exampleFormControlInput1" placeholder="bill amt" style="width:50%;height:40px;font-size:14px" required="">
 						</div>
 						<div class="form-group">
-							<input type="date" name="due_date" class="form-control" id="exampleFormControlInput1" placeholder="due date" value="last date" style="width:50%;height:40px;font-size:14px">
+							<input type="date" name="due_date" class="form-control" id="exampleFormControlInput1" placeholder="due date" value="last date" style="width:50%;height:40px;font-size:14px" required="">
 						</div>
 						
 						<input class="btn btn-primary" type="submit" value="Add" style="width:10%;height:25px">
