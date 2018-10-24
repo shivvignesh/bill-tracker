@@ -19,6 +19,9 @@ def index(request):
 		amount=request.POST.get('amount')
 		due_date=request.POST.get('due_date')
 		
+		
+
+
 		Bill.objects.create(user=request.user,name=name,amount=amount,due_date=due_date)
 
 		
