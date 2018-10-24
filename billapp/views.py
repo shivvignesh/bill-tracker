@@ -189,7 +189,7 @@ def delete(request,pk):
 
 	bills=Bill.objects.filter(user=request.user)
 	username=request.user.username
-
+	return redirect('/')
 	return render(request,'billapp/index.html',{'bills':bills,'username':username})
 
 
