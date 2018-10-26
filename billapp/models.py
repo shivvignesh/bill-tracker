@@ -13,7 +13,7 @@ class Bill(models.Model):
 	name=models.CharField(max_length=100)
 	amount=models.IntegerField(default=0)
 	date=models.DateTimeField(auto_now_add=True)
-	due_date=models.DateTimeField()
+	due_date=models.DateField()
 	
 
 	def __str__(self):
